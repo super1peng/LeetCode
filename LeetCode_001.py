@@ -28,8 +28,10 @@ class twoSum(object):
         '''
         使用一层循环
         '''
-        result = []
+
+        res = []
         for i in range(len(nums)):
+            result = []
             oneNum = nums[i]
             twoNum = target - oneNum
             if twoNum in nums:
@@ -38,7 +40,10 @@ class twoSum(object):
                 if i != j :
                     result.append(i)
                     result.append(j)
-                    return result
+                    result.sort()
+                if result not in res:
+                    res.append(result)
+        return res
             
     def twoSum_3(self, nums, target):
         
@@ -61,21 +66,23 @@ class twoSum(object):
         return result
 
 if __name__ == '__main__':
-    nums = [2, 7, 11, 15]
+    nums = [2, 7, 1, 8]
     target = 9
     test = twoSum()
 
-    start = time.time()
-    res_1 = test.twoSum_1(nums, target)
-    end = time.time()
-    print(res_1,end-start)
+    # start = time.time()
+    # res_1 = test.twoSum_1(nums, target)
+    # end = time.time()
+    # print(res_1,end-start)
     
-    start = time.time()
+    # start = time.time()
+    # 对 方法2 进行了改进
     res_2 = test.twoSum_2(nums, target)
-    end = time.time()
-    print(res_2,end-start)
+    print(res_2)
+    # end = time.time()
+    # print(res_2,end-start)
 
-    start = time.time()
-    res_3 = test.twoSum_3(nums, target)
-    end = time.time()
-    print(res_3,end-start)
+    # start = time.time()
+    # res_3 = test.twoSum_3(nums, target)
+    # end = time.time()
+    # print(res_3,end-start)
